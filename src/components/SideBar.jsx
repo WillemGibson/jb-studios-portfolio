@@ -1,8 +1,8 @@
-const SideBar = () => {
+const SideMenu = () => {
   return (
     <>
     </>
   )
 }
 
-export default SideBar
+export default SideMenu;
