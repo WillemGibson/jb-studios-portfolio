@@ -1,7 +1,7 @@
 import { Focus } from "lucide-react";
 
 // eslint-disable-next-line react/prop-types
-const CameraResetButton = ({ resetCamera }) =>  {
+export default function CameraResetButton({ resetCamera }) {
   // Define button styles
   const buttonStyle = {
     position: "fixed",
@@ -31,5 +31,3 @@ const CameraResetButton = ({ resetCamera }) =>  {
     </button>
   );
 }
-
-export default CameraResetButton;

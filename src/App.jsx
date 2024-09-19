@@ -1,12 +1,12 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import SideBar from './components/SideBar';
+import SideMenu from './components/SideMenu';
 import { HomePage, AboutPage, WorkPage, ContactPage } from './pages';
 import './index.css';
 
-const App = () => {
+export default function App() {
   return (
     <Router>
-      <SideBar />
+      <SideMenu />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -16,5 +16,3 @@ const App = () => {
     </Router>
   )
 }
-
-export default App

@@ -1,11 +1,9 @@
 import LogoScene from '../components/LogoScene';
 
-const HomePage = () => {
+export default function HomePage() {
   return (
     <section className='relative w-full h-screen'>
       <LogoScene />
     </section>
   )
 }
-
-export default HomePage;

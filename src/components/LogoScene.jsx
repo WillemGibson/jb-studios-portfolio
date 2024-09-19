@@ -2,9 +2,9 @@ import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { CameraResetButton } from './buttons/CameraResetButton';
+import CameraResetButton from './buttons/CameraResetButton';
 
-const LogoScene = () => {
+export default function LogoScene() {
     const modelRef = useRef(null);
     const velocityRef = useRef(new THREE.Vector3(0.02, 0.02, 0)); // Initial velocity for bouncing
     const bounds = { x: 6.5, y: 3.5 }; // Define bounds for the "bouncing" movement
@@ -154,5 +154,3 @@ const LogoScene = () => {
         </div>
     );
 }
-
-export default LogoScene;

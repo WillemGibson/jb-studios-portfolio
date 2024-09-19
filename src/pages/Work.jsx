@@ -1,7 +1,5 @@
-const WorkPage = () => {
+export default function WorkPage() {
   return (
     <div>Work</div>
   )
 }
-
-export default WorkPage;
