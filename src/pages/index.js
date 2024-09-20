@@ -1,6 +1,6 @@
-import Home from './Home';
-import About from './About';
-import Work from './Work';
-import Contact from './Contact';
+import HomePage from './Home';
+import AboutPage from './About';
+import WorkPage from './Work';
+import ContactPage from './Contact';
 
-export { Home, About, Work, Contact};
+export { HomePage, AboutPage, WorkPage, ContactPage};

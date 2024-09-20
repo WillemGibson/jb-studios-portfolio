@@ -1,12 +1,18 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import SideBar from './components/SideBar';
+import { NavLink, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { HomePage, AboutPage, WorkPage, ContactPage } from './pages';
 import './index.css';
+import SideMenu from './components/SideMenu';
 
-const App = () => {
+export default function App() {
+  
   return (
     <Router>
-      <SideBar />
+      <NavLink
+        to="/"
+        className="fixed top-5 left-5 text-white text-2xl">
+          JB Studios
+      </NavLink>
+      <SideMenu />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -16,5 +22,3 @@ const App = () => {
     </Router>
   )
 }
-
-export default App
