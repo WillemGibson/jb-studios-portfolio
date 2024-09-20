@@ -6,7 +6,7 @@ export default function CameraResetButton({ resetCamera }) {
   const buttonStyle = {
     position: "fixed",
     bottom: "16px",
-    right: "16px",
+    left: "16px",
     borderRadius: "50%",
     width: "50px",
     height: "50px",
