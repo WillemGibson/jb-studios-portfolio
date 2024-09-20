@@ -1,34 +1,128 @@
-/* eslint-disable react/prop-types */
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
+// SideMenu component definition
 export default function SideMenu() {
+  // State to control the menu's open/closed status
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to toggle the menu's open/closed state
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Variants for menu animations
+  const menuVariants = {
+    open: { x: 0 },
+    closed: { x: "100%" },
+  };
+
+  // Variants for hamburger lines animations
+  const topLineVariants = {
+    open: { rotate: 45, translateY: 1.5 },
+    closed: { rotate: 0, translateY: 0 },
+  };
+
+  const middleLineVariants = {
+    open: { opacity: 0 },
+    closed: { opacity: 1 },
+  };
+
+  const bottomLineVariants = {
+    open: { rotate: -45, translateY: -1.5 },
+    closed: { rotate: 0, translateY: 0 },
+  };
+
+  // Function to handle link clicks
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu
+  };
+
   return (
-    <>
-      <nav className="fixed right-0 top-0 h-full w-64 bg-white shadow-lg flex flex-col z-10">
-        <div className="flex-1 flex flex-col py-8">
-          <div className="flex-1 flex flex-col justify-start space-y-4">
-            <NavLink
-              to="/about"
-              className="block py-4 px-6 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 text-center">
-              About Us
-            </NavLink>
-            <NavLink
-              to="/work"
-              className="block py-4 px-6 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 text-center">
-              Our Work
-            </NavLink>
-          </div>
-          <div className="flex-1 flex flex-col justify-end">
+    <div className="relative">
+      {/* Hamburger Button */}
+      <button
+        onClick={toggleMenu}
+        className="fixed top-4 right-4 z-50 p-2 rounded-md text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        <div className="w-8 h-8 flex flex-col justify-around items-center">
+          {/* Top line of the hamburger */}
+          <motion.span
+            variants={topLineVariants}
+            animate={isOpen ? "open" : "closed"}
+            initial="closed"
+            transition={{ duration: 0.3 }}
+            className={`w-full h-0.5 rounded-sm transform origin-left ${isOpen ? 'bg-black' : 'bg-current'}`}
+          />
+          {/* Middle line of the hamburger */}
+          <motion.span
+            variants={middleLineVariants}
+            animate={isOpen ? "open" : "closed"}
+            initial="closed"
+            transition={{ duration: 0.3 }}
+            className={`w-full h-0.5 rounded-sm ${isOpen ? 'bg-black' : 'bg-current'}`}
+          />
+          {/* Bottom line of the hamburger */}
+          <motion.span
+            variants={bottomLineVariants}
+            animate={isOpen ? "open" : "closed"}
+            initial="closed"
+            transition={{ duration: 0.3 }}
+            className={`w-full h-0.5 rounded-sm transform origin-left ${isOpen ? 'bg-black' : 'bg-current'}`}
+          />
+        </div>
+      </button>
+
+      {/* Side Menu */}
+      <motion.div
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        variants={menuVariants}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 flex flex-col dark:bg-neutral-950"
+      >
+        <nav className="flex-grow flex flex-col justify-between pb-8 mt-16">
+          <ul className="space-y-8 text-center">
+            <li>
+              <NavLink
+                to="/about"
+                className="text-neutral-950 hover:text-neutral-500 text-lg font-medium dark:text-neutral-50 dark:hover:text-neutral-50"
+                onClick={handleLinkClick} // Close menu on link click
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/work"
+                className="text-neutral-950 hover:text-neutral-500 text-lg font-medium dark:text-neutral-50 dark:hover:text-neutral-50"
+                onClick={handleLinkClick} // Close menu on link click
+              >
+                Our Work
+              </NavLink>
+            </li>
+          </ul>
+          <div className="text-center">
             <NavLink
               to="/contact"
-              className="flex items-center justify-center py-4 px-6 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200">
-              <Mail className="w-5 h-5 mr-2" />
+              className="text-neutral-950 hover:text-neutral-500 text-lg font-medium inline-flex items-center dark:text-neutral-50 dark:hover:text-neutral-50"
+              onClick={handleLinkClick} // Close menu on link click
+            >
+              <Mail className="mr-2 h-5 w-5" />
               Contact Us
             </NavLink>
           </div>
-        </div>
-      </nav>
-    </>
-  )
+        </nav>
+      </motion.div>
+
+      {/* Overlay to close menu when clicked */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
+          onClick={toggleMenu}
+        />
+      )}
+    </div>
+  );
 }

@@ -1,25 +1,18 @@
-import { useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import MenuToggleButton from './components/buttons/MenuToggleButton';
-import SideMenu from './components/SideMenu';
+import { NavLink, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { HomePage, AboutPage, WorkPage, ContactPage } from './pages';
 import './index.css';
+import SideMenu from './components/SideMenu';
 
 export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
   
   return (
     <Router>
-      <MenuToggleButton 
-        onClick={toggleMenu} 
-        isOpen={isMenuOpen} 
-        className="absolute z-10"
-        />
-      {isMenuOpen && <SideMenu />}
+      <NavLink
+        to="/"
+        className="fixed top-5 left-5 text-white text-2xl">
+          JB Studios
+      </NavLink>
+      <SideMenu />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
