@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        custom: ['Public Sans', 'sans-serif'], // Replace 'MyFont' with the actual font name
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

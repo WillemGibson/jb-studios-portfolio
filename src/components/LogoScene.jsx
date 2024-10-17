@@ -3,12 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import CameraResetButton from './buttons/CameraResetButton';
+import CameraMoveSuggestionButton from './buttons/CameraMoveSuggestionButton';
 
 export default function LogoScene() {
     const modelRef = useRef(null);
     const velocityRef = useRef(new THREE.Vector3(0.02, 0.02, 0)); // Initial velocity for bouncing
     const bounds = { x: 6.5, y: 3.5 }; // Define bounds for the "bouncing" movement
     const [isCameraMoved, setIsCameraMoved] = useState(false); // State to track camera movement
+    const [showSuggestionButton, setShowSuggestionButton] = useState(false);
 
     // Initial camera position and rotation
     const initialCameraPosition = useRef(new THREE.Vector3(0, 0, 5));
@@ -136,7 +138,7 @@ export default function LogoScene() {
         return () => {
             window.removeEventListener('resize', handleResize);
             renderer.dispose(); // Dispose of the renderer
-        };
+        };        
     }, []);
 
     // Reset camera to initial position
@@ -145,11 +147,26 @@ export default function LogoScene() {
         setIsCameraMoved(false);
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!isCameraMoved) {
+                setShowSuggestionButton(true); // Show suggestion button if camera hasn't moved
+            }
+        }, 5000); // 5 seconds
+
+        return () => clearTimeout(timer); // Clean up the timeout on unmount
+    }, [isCameraMoved]); // Runs every time isCameraMoved changes
+
     return (
         <div>
             <canvas id='container3D'></canvas>
             {isCameraMoved && (
                 <CameraResetButton resetCamera={resetCamera} />
+            )}
+            {showSuggestionButton && !isCameraMoved && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <CameraMoveSuggestionButton />
+                </div>
             )}
         </div>
     );
