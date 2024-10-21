@@ -10,7 +10,7 @@ export default function LogoScene() {
     const velocityRef = useRef(new THREE.Vector3(0.02, 0.02, 0)); // Initial velocity for bouncing
     const bounds = { x: 6.5, y: 3.5 }; // Define bounds for the "bouncing" movement
     const [isCameraMoved, setIsCameraMoved] = useState(false); // State to track camera movement
-    const [showSuggestionButton, setShowSuggestionButton] = useState(false);
+    const [showSuggestionButton, setShowSuggestionButton] = useState(false); // State to track suggestion button
 
     // Initial camera position and rotation
     const initialCameraPosition = useRef(new THREE.Vector3(0, 0, 5));
