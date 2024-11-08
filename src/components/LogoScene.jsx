@@ -10,7 +10,7 @@ export default function LogoScene() {
     const velocityRef = useRef(new THREE.Vector3(0.02, 0.02, 0)); // Initial velocity for bouncing
     const bounds = { x: 6.5, y: 3.5 }; // Define bounds for the "bouncing" movement
     const [isCameraMoved, setIsCameraMoved] = useState(false); // State to track camera movement
-    const [showSuggestionButton, setShowSuggestionButton] = useState(false);
+    const [showSuggestionButton, setShowSuggestionButton] = useState(false); // State to track suggestion button
 
     // Initial camera position and rotation
     const initialCameraPosition = useRef(new THREE.Vector3(0, 0, 5));
@@ -83,7 +83,10 @@ export default function LogoScene() {
             }
         );
 
-        // Function to add stars to the scene
+        // Array to store stars and their velocities
+        const stars = [];
+
+        // Function to add stars to the scene with velocities
         function addStar() {
             const geometry = new THREE.SphereGeometry(0.25, 24, 24);
             const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -92,6 +95,18 @@ export default function LogoScene() {
             // Randomly position stars
             const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
             star.position.set(x, y, z);
+
+            // Random velocity for each star (more gradual movement)
+            const velocity = new THREE.Vector3(
+                Math.random() * 0.02 - 0.01, // Random X velocity
+                Math.random() * 0.02 - 0.01, // Random Y velocity
+                Math.random() * 0.02 - 0.01  // Random Z velocity
+            );
+
+            // Attach velocity to each star
+            star.velocity = velocity;
+
+            stars.push(star); // Add star to the array
             scene.add(star); // Add star to the scene
         }
 
@@ -117,10 +132,27 @@ export default function LogoScene() {
                 if (model.position.y > bounds.y || model.position.y < -bounds.y) {
                     velocity.y = -velocity.y;
                 }
-
-                controls.update(); // Update controls
-                renderer.render(scene, camera); // Render the scene
             }
+
+            // Move each star based on its velocity
+            stars.forEach(star => {
+                // Update star position based on its velocity
+                star.position.add(star.velocity);
+
+                // Apply some boundary conditions: "bounce" when reaching the bounds
+                if (star.position.x > bounds.x || star.position.x < -bounds.x) {
+                    star.velocity.x *= -0.25; // Reverse X velocity
+                }
+                if (star.position.y > bounds.y || star.position.y < -bounds.y) {
+                    star.velocity.y *= -0.25; // Reverse Y velocity
+                }
+                if (star.position.z > 100 || star.position.z < -100) {
+                    star.velocity.z *= -0.25; // Reverse Z velocity
+                }
+            });
+
+            controls.update(); // Update controls
+            renderer.render(scene, camera); // Render the scene
         }
 
         animate(); // Start animation loop

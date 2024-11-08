@@ -90,7 +90,7 @@ export default function SideMenu() {
                 className="text-neutral-950 hover:text-neutral-500 text-lg font-medium dark:text-neutral-50 dark:hover:text-neutral-50"
                 onClick={handleLinkClick} // Close menu on link click
               >
-                About Us
+                About Me
               </NavLink>
             </li>
             <li>
@@ -99,7 +99,7 @@ export default function SideMenu() {
                 className="text-neutral-950 hover:text-neutral-500 text-lg font-medium dark:text-neutral-50 dark:hover:text-neutral-50"
                 onClick={handleLinkClick} // Close menu on link click
               >
-                Our Work
+                My Work
               </NavLink>
             </li>
           </ul>
@@ -110,7 +110,7 @@ export default function SideMenu() {
               onClick={handleLinkClick} // Close menu on link click
             >
               <Mail className="mr-2 h-5 w-5" />
-              Contact Us
+              Work With Me
             </NavLink>
           </div>
         </nav>
