@@ -35,7 +35,7 @@ export default function SideMenu() {
 
   // Function to handle link clicks
   const handleLinkClick = () => {
-    setIsOpen(false); // Close the menu
+    setIsOpen(false); // Close the menu when a link is clicked
   };
 
   return (
@@ -121,6 +121,7 @@ export default function SideMenu() {
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={toggleMenu}
+          aria-label="Close menu overlay"
         />
       )}
     </div>
