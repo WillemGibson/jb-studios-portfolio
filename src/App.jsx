@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <NavLink
         to="/"
-        className="fixed top-5 left-5 text-white text-3xl font-custom font-bold tracking-wide shadow-md z-20">
+        className="fixed top-5 left-5 text-white text-3xl font-custom font-bold tracking-wide z-20">
           JBD Studios
       </NavLink>
       <SideMenu />

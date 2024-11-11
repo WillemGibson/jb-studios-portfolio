@@ -8,7 +8,7 @@ import CameraMoveSuggestionButton from './buttons/CameraMoveSuggestionButton';
 export default function LogoScene() {
     const modelRef = useRef(null); // Reference for the loaded 3D model
     const velocityRef = useRef(new THREE.Vector3(0.02, 0.02, 0)); // Initial velocity for model bouncing
-    const bounds = { x: 6.5, y: 3.5 }; // Define movement bounds for the model
+    const bounds = { x: 6.8, y: 3.5 }; // Define movement bounds for the model
     const [isCameraMoved, setIsCameraMoved] = useState(false); // Track if the camera was moved by the user
     const [showSuggestionButton, setShowSuggestionButton] = useState(false); // Show suggestion button if camera hasn't moved
 
