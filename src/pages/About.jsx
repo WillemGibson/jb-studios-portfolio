@@ -27,7 +27,7 @@ export default function AboutPage() {
           {/* Right Section (Image) */}
           <div className="w-full mb-6 md:mb-0 md:w-1/3">
             <img 
-              src="/assets/img/A7400323.avif" 
+              src="/assets/img/A7400323.jpg" 
               alt="head shot" 
               className="w-full max-w-xs sm:w-96 sm:h-96 rounded-full object-cover mx-auto"
             />

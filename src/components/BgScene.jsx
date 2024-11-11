@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { useEffect, useRef } from 'react';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export default function BgScene() {
     const bounds = { x: 6.5, y: 3.5 }; // Define bounds for the "bouncing" movement of stars
@@ -29,8 +30,16 @@ export default function BgScene() {
         initialCameraPosition.current.copy(camera.position);
         initialCameraRotation.current.copy(camera.rotation);
 
+        // Set up OrbitControls for camera manipulation
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; // Smooth controls
+        controls.dampingFactor = 0.25;
+        controls.enableZoom = false; // Disable zooming
+
+        controls.update(); // Ensure controls are updated initially
         // Set background color of the scene
         scene.background = new THREE.Color(0x000000);
+        
 
         // Array to store the stars and their velocities
         const stars = [];
@@ -96,6 +105,7 @@ export default function BgScene() {
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
 
+            controls.update(); // Update camera controls
             // Update renderer size to fit the new window dimensions
             renderer.setSize(width, height);
         }
