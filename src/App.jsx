@@ -1,7 +1,8 @@
 import { NavLink, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { HomePage, AboutPage, WorkPage, ContactPage, ErrorPage } from './pages';
-import './index.css';
 import SideMenu from './components/SideMenu';
+import Wordmark from './components/Wordmark';
+import './index.css';
 
 export default function App() {
   
@@ -13,6 +14,7 @@ export default function App() {
           JBD Studios
       </NavLink>
       <SideMenu />
+      <Wordmark />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
