@@ -69,7 +69,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj1/1.avif"
                 alt="Project 1"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj2/1.avif"
                 alt="Project 2"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj3/1.avif"
                 alt="Project 3"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj4/1.avif"
                 alt="Project 4"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj5/1.avif"
                 alt="Project 5"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function WorkPage() {
               <img
                 src="assets/projects/proj6/1.avif"
                 alt="Project 6"
-                className="w-full h-full object-cover"
+                className="pointer-events-none w-full h-full object-cover"
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function WorkPage() {
             <img
               src={carouselImages[currentIndex]}
               alt="Modal View"
-              className="max-w-full max-h-full object-contain"
+              className="pointer-events-none max-w-full max-h-full object-contain"
             />
 
             {/* Carousel Controls (arrows) */}
