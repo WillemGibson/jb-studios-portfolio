@@ -29,7 +29,7 @@ export default function AboutPage() {
             <img 
               src="/assets/img/A7400323.jpg" 
               alt="head shot" 
-              className="w-full max-w-xs sm:w-96 sm:h-96 rounded-full object-cover mx-auto"
+              className="w-full max-w-xs pointer-events-none sm:w-96 sm:h-96 rounded-full object-cover mx-auto"
             />
           </div>
         </div>
