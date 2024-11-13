@@ -2,12 +2,12 @@ import BgScene from "@/components/BgScene";
 
 export default function AboutPage() {
   return (
-    <section className="relative flex items-center justify-center min-h-screen bg-black text-white">
+    <section className="fixed flex items-center justify-center min-h-screen bg-black text-white">
       {/* Background Scene */}
       <BgScene className="fixed top-0 left-0 h-screen w-screen z-10 pointer-events-none" />
 
       {/* Main Content */}
-      <div className="fixed z-30 max-w-full p-6 sm:p-8 bg-black rounded-lg shadow-lg border-4 w-full sm:max-w-4xl md:max-w-6xl">
+      <div className="fixed w-full max-w-screen-xl h-[800px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
         <div className="flex flex-col items-center md:flex-row md:items-start">
           {/* Left Section (Text) */}
           <div className="w-full mb-6 md:mb-0 md:w-2/3 md:mr-8">

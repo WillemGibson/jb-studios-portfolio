@@ -2,22 +2,28 @@ import { useState } from "react";
 import BgScene from "@/components/BgScene";
 
 export default function WorkPage() {
-  // Function to dynamically fetch images from a given folder in the public/images directory
-  const getImagesFromFolder = (folderName) => {
-    const folderPath = `assets/projects/${folderName}/`;
-    return [
-      `${folderPath}1.jpg`,
-      `${folderPath}2.jpg`,
-      `${folderPath}3.jpg`,
-    ];
-  };
-
-  // Arrays of images for each card's carousel (based on folders)
+  // Manually defined list of available images for each project folder
   const imageSets = {
-    0: getImagesFromFolder("proj1"),
-    1: getImagesFromFolder("proj2"),
-    2: getImagesFromFolder("proj3"),
-    3: getImagesFromFolder("proj4"),
+    0: [
+      "assets/projects/proj1/1.jpg",
+      "assets/projects/proj1/2.jpg",
+      "assets/projects/proj1/3.jpg",
+      "assets/projects/proj1/4.jpg",
+      "assets/projects/proj1/5.jpg",
+    ],
+    1: [
+      "assets/projects/proj2/1.jpg",
+      "assets/projects/proj2/2.jpg",
+      "assets/projects/proj2/3.jpg",
+      "assets/projects/proj2/4.jpg",
+      "assets/projects/proj2/5.jpg",
+    ],
+    2: [
+      "assets/projects/proj3/1.jpg", 
+      "assets/projects/proj3/2.jpg", 
+      "assets/projects/proj3/3.jpg", 
+      "assets/projects/proj3/4.jpg",
+    ],
   };
 
   // State to manage the modal and carousel
@@ -27,7 +33,8 @@ export default function WorkPage() {
 
   // Function to open the modal and set the starting image set
   const openModal = (cardIndex) => {
-    setCarouselImages(imageSets[cardIndex]); // Set the images based on the card clicked
+    const images = imageSets[cardIndex] || []; // Get the images for the selected project
+    setCarouselImages(images); // Set the images based on the card clicked
     setCurrentIndex(0); // Start the carousel at the first image
     setIsModalOpen(true); // Open the modal
   };
@@ -122,11 +129,13 @@ export default function WorkPage() {
         >
           <div className="relative h-[800px] flex justify-center items-center p-4 sm:p-8 md:p-16">
             {/* Image */}
-            <img
-              src={carouselImages[currentIndex]}
-              alt="Modal View"
-              className="pointer-events-none max-w-full max-h-full object-contain"
-            />
+            {carouselImages.length > 0 && (
+              <img
+                src={carouselImages[currentIndex]}
+                alt="Modal View"
+                className="pointer-events-none max-w-full max-h-full object-contain"
+              />
+            )}
 
             {/* Carousel Controls (arrows) */}
             <button
