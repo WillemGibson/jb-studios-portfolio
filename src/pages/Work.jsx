@@ -6,9 +6,9 @@ export default function WorkPage() {
   const getImagesFromFolder = (folderName) => {
     const folderPath = `assets/projects/${folderName}/`;
     return [
-      `${folderPath}1.avif`,
-      `${folderPath}2.avif`,
-      `${folderPath}3.avif`,
+      `${folderPath}1.jpg`,
+      `${folderPath}2.jpg`,
+      `${folderPath}3.jpg`,
     ];
   };
 
@@ -18,8 +18,6 @@ export default function WorkPage() {
     1: getImagesFromFolder("proj2"),
     2: getImagesFromFolder("proj3"),
     3: getImagesFromFolder("proj4"),
-    4: getImagesFromFolder("proj5"),
-    5: getImagesFromFolder("proj6"),
   };
 
   // State to manage the modal and carousel
@@ -67,10 +65,14 @@ export default function WorkPage() {
           >
             <div className="relative w-full h-full">
               <img
-                src="assets/projects/proj1/1.avif"
+                src="assets/projects/proj1/1.jpg"
                 alt="Project 1"
                 className="pointer-events-none w-full h-full object-cover"
               />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center">
+                <span className="text-white text-2xl sm:text-3xl font-custom font-semibold">Match Day Designs</span>
+              </div>
             </div>
           </div>
 
@@ -81,10 +83,14 @@ export default function WorkPage() {
           >
             <div className="relative w-full h-full">
               <img
-                src="assets/projects/proj2/1.avif"
+                src="assets/projects/proj2/1.jpg"
                 alt="Project 2"
                 className="pointer-events-none w-full h-full object-cover"
               />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center">
+                <span className="text-white text-2xl sm:text-3xl font-custom font-semibold">Posters</span>
+              </div>
             </div>
           </div>
 
@@ -95,52 +101,14 @@ export default function WorkPage() {
           >
             <div className="relative w-full h-full">
               <img
-                src="assets/projects/proj3/1.avif"
+                src="assets/projects/proj3/1.jpg"
                 alt="Project 3"
                 className="pointer-events-none w-full h-full object-cover"
               />
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div
-            className="w-full h-[400px] bg-black border-2 border-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 relative z-20"
-            onClick={() => openModal(3)}
-          >
-            <div className="relative w-full h-full">
-              <img
-                src="assets/projects/proj4/1.avif"
-                alt="Project 4"
-                className="pointer-events-none w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Card 5 */}
-          <div
-            className="w-full h-[400px] bg-black border-2 border-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 relative z-20"
-            onClick={() => openModal(4)}
-          >
-            <div className="relative w-full h-full">
-              <img
-                src="assets/projects/proj5/1.avif"
-                alt="Project 5"
-                className="pointer-events-none w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Card 6 */}
-          <div
-            className="w-full h-[400px] bg-black border-2 border-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 relative z-20"
-            onClick={() => openModal(5)}
-          >
-            <div className="relative w-full h-full">
-              <img
-                src="assets/projects/proj6/1.avif"
-                alt="Project 6"
-                className="pointer-events-none w-full h-full object-cover"
-              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center">
+                <span className="text-white text-2xl sm:text-3xl font-custom font-semibold">Sports Edits</span>
+              </div>
             </div>
           </div>
         </div>
@@ -152,7 +120,7 @@ export default function WorkPage() {
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-30"
           onClick={closeModal}
         >
-          <div className="relative flex justify-center items-center p-4 sm:p-8 md:p-16">
+          <div className="relative h-[800px] flex justify-center items-center p-4 sm:p-8 md:p-16">
             {/* Image */}
             <img
               src={carouselImages[currentIndex]}
