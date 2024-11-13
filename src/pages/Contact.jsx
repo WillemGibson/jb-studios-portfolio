@@ -3,12 +3,12 @@ import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
-    <section className="relative flex items-center justify-center min-h-screen bg-black text-white">
+    <section className="fixed flex items-center justify-center min-h-screen bg-black text-white">
       {/* Background Scene */}
       <BgScene className="fixed top-0 left-0 h-screen w-screen z-10 pointer-events-none" />
       
       {/* Main Content Container */}
-      <div className="fixed z-30 max-w-full p-6 md:p-8 bg-black rounded-lg shadow-lg border-4 w-full sm:max-w-md md:max-w-6xl">
+      <div className="fixed w-full max-w-screen-xl h-[800px] sm:h-[100px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
         <div className="flex flex-col items-center justify-center w-full md:flex-row md:space-x-8">
           
           {/* Left Section (Heading + Subheading) */}
