@@ -8,11 +8,11 @@ export default function ContactPage() {
       <BgScene className="fixed top-0 left-0 h-screen w-screen z-10 pointer-events-none" />
       
       {/* Main Content Container */}
-      <div className="fixed w-full max-w-screen-xl h-[650px] bg-black rounded-lg shadow-lg border-4 py-12 px-8 z-20">
+      <div className="fixed w-full max-w-screen-xl h-[650px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
         <div className="flex flex-col items-center justify-center w-full md:flex-row md:space-x-8">
           
           {/* Left Section (Heading + Subheading) */}
-          <div className="w-full md:w-1/2 mb-6 md:mb-0">
+          <div className="w-full  md:w-1/2 mb-6 md:mb-0">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center md:text-left">
               Want to work with me?
             </h1>
