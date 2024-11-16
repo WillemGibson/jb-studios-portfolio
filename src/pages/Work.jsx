@@ -78,7 +78,7 @@ export default function WorkPage() {
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center">
-                <span className="text-white text-2xl sm:text-3xl font-custom font-semibold">Match Day Designs</span>
+                <span className="text-white text-2xl sm:text-3xl font-custom font-semibold">Matchday Graphics</span>
               </div>
             </div>
           </div>
