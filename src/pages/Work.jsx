@@ -62,7 +62,7 @@ export default function WorkPage() {
       <BgScene className="fixed top-0 left-0 h-screen w-screen z-10 pointer-events-none" />
 
       {/* Card container with responsive 2-column grid */}
-      <div className="fixed w-full max-w-screen-xl h-[800px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
+      <div className="fixed w-full max-w-screen-xl h-[650px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
         <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center md:text-center">My Work</h1>
         <div className="p-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* Card 1 */}
@@ -155,14 +155,6 @@ export default function WorkPage() {
               }}
             >
               &gt;
-            </button>
-
-            {/* Close Button */}
-            <button
-              className="absolute top-5 right-5 p-4 text-white text-3xl"
-              onClick={closeModal}
-            >
-              &times;
             </button>
           </div>
         </div>

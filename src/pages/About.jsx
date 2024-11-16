@@ -7,7 +7,7 @@ export default function AboutPage() {
       <BgScene className="fixed top-0 left-0 h-screen w-screen z-10 pointer-events-none" />
 
       {/* Main Content */}
-      <div className="fixed w-full max-w-screen-xl h-[800px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
+      <div className="fixed w-full max-w-screen-xl h-[650px] bg-black overflow-y-scroll no-scrollbar rounded-lg shadow-lg border-4 py-12 px-8 z-20">
         <div className="flex flex-col items-center md:flex-row md:items-start">
           {/* Left Section (Text) */}
           <div className="w-full mb-6 md:mb-0 md:w-2/3 md:mr-8">
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <img 
               src="/assets/img/A7400323.jpg" 
               alt="head shot" 
-              className="w-full max-w-xs pointer-events-none sm:w-96 sm:h-96 rounded-full object-cover mx-auto"
+              className="w-full max-w-xs pointer-events-none sm:w-80 sm:h-80 rounded-full object-cover mx-auto"
             />
           </div>
         </div>
